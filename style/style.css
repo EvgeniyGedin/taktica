@@ -29,7 +29,7 @@ body {
   header{
     margin: 0;
     padding:0;
-    width:1111px;
+    width:100%;
     margin: 0 auto;
 
   }
@@ -364,8 +364,9 @@ border-radius: 50px;
 .cards{
   margin: 0;
   padding:0;
-    width:1111px;
+    width:100%;
     margin: 0 auto;
+    flex-wrap:wrap;
 
 
 
@@ -385,7 +386,7 @@ border-radius: 50px;
   padding:0;
   display: flex;
   justify-content:space-between;
-
+  flex-wrap:wrap;
 
 }
 .card-item{
