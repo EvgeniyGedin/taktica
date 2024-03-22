@@ -8,21 +8,36 @@ let windowAboutProduction = document.querySelector(
 );
 
 let windowsOpen = function (button, window) {
-  button.onclick = function (evt) {
+  button.addEventListener("click", function (evt) {
     evt.preventDefault();
     window.classList.toggle("invisible");
-  };
+  });
+  document.addEventListener("click", function (event) {
+    // Проверяем, является ли целью события элемент списка или кнопки меню
+    if (event.target !== button && event.target !== window) {
+      // Если целью не является элемент списка или кнопка меню, то сворачиваем список
+      window.classList.add("invisible");
+    }
+  });
 };
 
 windowsOpen(buttonCatalog, windowCatalog);
 windowsOpen(buttonAboutProduction, windowAboutProduction);
 
-document.addEventListener("click", function (event) {
-  console.log(event.target);
-  // Проверяем, является ли целью события элемент списка или кнопки меню
-  if (event.target !== buttonCatalog && event.target !== windowCatalog) {
-    console.log(windowCatalog);
-    // Если целью не является элемент списка или кнопка меню, то сворачиваем список
-    windowCatalog.classList.add("invisible");
+let headerUpperAbout = document.querySelector(".header-upper-about-production");
+let headerLower = document.querySelector(".header-lower");
+let headerUpperr = document.querySelector(".header-upper");
+let contacts = document.querySelector(".site-navigation-upper-contacts");
+window.onscroll = function () {
+  if (window.pageYOffset > 100) {
+    headerLower.classList.add("fixed");
+    headerUpperr.classList.add("transition");
+    contacts.classList.add("invisible");
+    headerUpperAbout.classList.add("invisible");
+  } else {
+    headerLower.classList.remove("fixed");
+    headerUpperr.classList.remove("transition");
+    contacts.classList.remove("invisible");
+    headerUpperAbout.classList.remove("invisible");
   }
-});
+};
