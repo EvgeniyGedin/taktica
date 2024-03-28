@@ -49,7 +49,7 @@ mobHamburger.onclick = function (evt) {
   evt.preventDefault();
   sidePanel.classList.toggle("visible");
   headerMobOverflou.classList.toggle("visible");
-  body.classList.toggle("overflow");
+  body.classList.add("overflow");
 };
 
 let lupa = document.querySelector(".header-side-panel-lupa");
@@ -57,4 +57,5 @@ lupa.onclick = function (evt) {
   evt.preventDefault();
   sidePanel.classList.toggle("visible");
   headerMobOverflou.classList.toggle("visible");
+  body.classList.remove("overflow");
 };
